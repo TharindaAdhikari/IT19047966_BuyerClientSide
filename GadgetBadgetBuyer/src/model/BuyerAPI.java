@@ -16,7 +16,7 @@ public class BuyerAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-	Buyer itemObj = new Buyer();
+	Buyer buyerObj = new Buyer();
     public BuyerAPI() {
         super();
         // TODO Auto-generated constructor stub
@@ -30,7 +30,7 @@ public class BuyerAPI extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String output = itemObj.insertBuyer(request.getParameter("bName"), request.getParameter("bAddress"),
+		String output = buyerObj.insertBuyer(request.getParameter("bName"), request.getParameter("bAddress"),
 				request.getParameter("bEmail"), request.getParameter("bDate"), request.getParameter("pNo"));
 		response.getWriter().write(output);
 	}
@@ -55,7 +55,7 @@ public class BuyerAPI extends HttpServlet {
 	
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map paras = getParasMap(request);
-		String output = itemObj.updateBuyers(paras.get("hidItemIDSave").toString(), paras.get("bName").toString(),
+		String output = buyerObj.updateBuyers(paras.get("hidItemIDSave").toString(), paras.get("bName").toString(),
 				paras.get("bAddress").toString(), paras.get("bEmail").toString(), paras.get("bDate").toString(),
 				paras.get("pNo").toString());
 		response.getWriter().write(output);
@@ -64,7 +64,7 @@ public class BuyerAPI extends HttpServlet {
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map paras = getParasMap(request);
-		String output = itemObj.deleteBuyer(paras.get("bID").toString());
+		String output = buyerObj.deleteBuyer(paras.get("bID").toString());
 		response.getWriter().write(output);
 	}
 
