@@ -1,3 +1,7 @@
+/**
+ * 
+ */
+
 $(document).ready(function()
 { 
 	if ($("#alertSuccess").text().trim() == "") 
@@ -28,7 +32,7 @@ $(document).on("click", "#btnSave", function(event)
  		
  		$.ajax( 
  	{ 
- 		url : "BuyersAPI", 
+ 		url : "BuyerAPI", 
 	 	type : type, 
  		data : $("#formItem").serialize(), 
  		dataType : "text", 
@@ -55,7 +59,7 @@ $(document).on("click", ".btnRemove", function(event)
 { 
  $.ajax( 
  { 
- url : "BuyersAPI", 
+ url : "BuyerAPI", 
  type : "DELETE", 
  data : "bID=" + $(this).data("bid"),
  dataType : "text", 
