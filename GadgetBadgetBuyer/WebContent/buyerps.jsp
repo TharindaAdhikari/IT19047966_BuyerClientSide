@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Buyer Client Side</title>
 
 <link rel="stylesheet" href="View/bootstrap.min.css">
 <script src="Components/jquery-3.6.0.min.js"></script>
@@ -29,14 +29,9 @@
 <body>
 
 	<section id="contact">
-
 		<div class="container">
 			<div class="contact-section">
-
 				<div class="row">
-
-
-
 					<!-- css -->
 					<div class="section-content">
 						<h1 class="section-header">
@@ -46,79 +41,63 @@
 						</h1>
 						<h3>New technological products from us</h3>
 					</div>
-
 					<div class="col-6">
 						<div class="leftside">
-							<form id="formItem" name="formItem">
-
+							<form id="formBuyer" name="formBuyer">
 								<div class="col-md-6 form-line">
-
 									<div class="form-group">
 										<label for="BuyerName">Buyer Name</label> <input id="bName"
 											name="bName" type="text" class="form-control form-control-sm">
 										<br>
 									</div>
-
 									<div class="form-group">
 										<label for="BuyerAddress">Buyer Address</label> <input
 											id="bAddress" name="bAddress" type="text"
 											class="form-control form-control-sm"> <br>
 									</div>
-
-
 									<div class="form-group">
 										<label for="BuyerEmail">Buyer Email</label> <input id="bEmail"
 											name="bEmail" type="text"
 											class="form-control form-control-sm"> <br>
 									</div>
-
-
 									<div class="form-group">
 										<label for="BuyerDate">Buyer Date</label> <input id="bDate"
 											name="bDate" type="text" class="form-control form-control-sm">
 										<br>
 									</div>
-
 									<div class="form-group">
 										<label for="PhoneNo">Buyer Phone Num</label> <input id="pNo"
 											name="pNo" type="text" class="form-control form-control-sm">
 										<br>
 									</div>
-
 									<div id="savedBu">
 										<input id="btnSave" name="btnSave" type="button" value="Save"
 											class="btn btn-outline-warning">
 									</div>
-
-									<input type="hidden" id="hidItemIDSave" name="hidItemIDSave"
+									<input type="hidden" id="hidBuyerIDSave" name="hidBuyerIDSave"
 										value="">
 								</div>
 							</form>
-
 							<div id="alertSuccess" class="alert alert-success"></div>
 							<div id="alertError" class="alert alert-danger"></div>
 							<br>
-
 						</div>
 					</div>
 
 					<div class="col-6">
 						<div class="rightside">
-							<div id="divItemsGrid">
+							<div id="divBuyerGrid">
 								<%
-								Buyer itemObj = new Buyer();
-								out.print(itemObj.readBuyers());
+								Buyer buyerObj = new Buyer();
+								out.print(buyerObj.readBuyers());
 								%>
 							</div>
-
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</section>
-
 
 </body>
 </html>

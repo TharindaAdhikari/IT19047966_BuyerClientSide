@@ -55,7 +55,7 @@ public class BuyerAPI extends HttpServlet {
 	
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map paras = getParasMap(request);
-		String output = buyerObj.updateBuyers(paras.get("hidItemIDSave").toString(), paras.get("bName").toString(),
+		String output = buyerObj.updateBuyers(paras.get("hidBuyerIDSave").toString(), paras.get("bName").toString(),
 				paras.get("bAddress").toString(), paras.get("bEmail").toString(), paras.get("bDate").toString(),
 				paras.get("pNo").toString());
 		response.getWriter().write(output);

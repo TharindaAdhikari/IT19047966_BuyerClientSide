@@ -10,7 +10,7 @@ public class Buyer {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/gadgetbadget", "root", "");
 			// For testing
-			System.out.println("Successfully connected");
+			System.out.println("Successfully connected to the Database");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -58,7 +58,7 @@ public class Buyer {
 			// Complete the html table
 			output += "</table>";
 		} catch (Exception e) {
-			output = "Error while reading the items.";
+			output = "Error while reading the Buyer Details.";
 			System.err.println(e.getMessage());
 		}
 		return output;
@@ -86,11 +86,11 @@ public class Buyer {
 			preparedStmt.execute();
 			con.close();
 
-			String newItems = readBuyers();
-			output = "{\"status\":\"success\", \"data\": \"" + newItems + "\"}";
+			String newBuyers = readBuyers();
+			output = "{\"status\":\"success\", \"data\": \"" + newBuyers + "\"}";
 
 		} catch (Exception e) {
-			output = "{\"status\":\"error\", \"data\": \"Error while inserting the item.\"}";
+			output = "{\"status\":\"error\", \"data\": \"Error while inserting the buyer.\"}";
 			System.err.println(e.getMessage());
 		}
 		return output;
@@ -124,11 +124,11 @@ public class Buyer {
 			preparedStmt.execute();
 			con.close();
 
-			String newItems = readBuyers();
-			output = "{\"status\":\"success\", \"data\": \"" + newItems + "\"}";
+			String newBuyers = readBuyers();
+			output = "{\"status\":\"success\", \"data\": \"" + newBuyers + "\"}";
 
 		} catch (Exception e) {
-			output = "{\"status\":\"error\", \"data\": \"Error while updating the item.\"}";
+			output = "{\"status\":\"error\", \"data\": \"Error while updating the buyer details.\"}";
 			System.err.println(e.getMessage());
 		}
 
@@ -150,10 +150,11 @@ public class Buyer {
 			// execute the statement
 			preparedStmt.execute();
 			con.close();
-			String newItems = readBuyers();
-			output = "{\"status\":\"success\", \"data\": \"" + newItems + "\"}";
+			
+			String newBuyers = readBuyers();
+			output = "{\"status\":\"success\", \"data\": \"" + newBuyers + "\"}";
 		} catch (Exception e) {
-			output = "{\"status\":\"error\", \"data\": \"Error while deleting the item.\"}";
+			output = "{\"status\":\"error\", \"data\": \"Error while deleting the buyer.\"}";
 			System.err.println(e.getMessage());
 		}
 		return output;

@@ -20,7 +20,7 @@ $(document).on("click", "#btnSave", function(event)
  	$("#alertError").text(""); 
  	$("#alertError").hide(); 
 	// Form validation-------------------
-	var status = validateItemForm(); 
+	var status = validateBuyerForm(); 
 	if (status != true) 
  	{ 
  		$("#alertError").text(status); 
@@ -28,17 +28,17 @@ $(document).on("click", "#btnSave", function(event)
  		return; 
 	} 
 	// If valid------------------------
- 		var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT"; 
+ 		var type = ($("#hidBuyerIDSave").val() == "") ? "POST" : "PUT"; 
  		
  		$.ajax( 
  	{ 
  		url : "BuyerAPI", 
 	 	type : type, 
- 		data : $("#formItem").serialize(), 
+ 		data : $("#formBuyer").serialize(), 
  		dataType : "text", 
  		complete : function(response, status) 
  	{ 
- 	onItemSaveComplete(response.responseText, status); 
+ 	onBuyerSaveComplete(response.responseText, status); 
  	} 
  	});
 });
@@ -46,7 +46,7 @@ $(document).on("click", "#btnSave", function(event)
 // UPDATE==========================================
 $(document).on("click", ".btnUpdate", function(event) 
 { 
- 	$("#hidItemIDSave").val($(this).data("bid")); 
+ 	$("#hidBuyerIDSave").val($(this).data("bid")); 
  	$("#bName").val($(this).closest("tr").find('td:eq(0)').text()); 
 	$("#bAddress").val($(this).closest("tr").find('td:eq(1)').text()); 
  	$("#bEmail").val($(this).closest("tr").find('td:eq(2)').text()); 
@@ -65,46 +65,45 @@ $(document).on("click", ".btnRemove", function(event)
  dataType : "text", 
  complete : function(response, status) 
  { 
- onItemDeleteComplete(response.responseText, status); 
+ onBuyerDeleteComplete(response.responseText, status); 
  } 
  }); 
 });
 
 
 // CLIENT-MODEL================================================================
-function validateItemForm() 
+function validateBuyerForm() 
 { 
-	// CODE
+	// BuyerName
 	if ($("#bName").val().trim() == "") 
  	{ 
- 		return "Insert Item Code."; 
+ 		return "Please Insert Buyer Name."; 
  	} 
-	// NAME
+	// BuyerAddress
 	if ($("#bAddress").val().trim() == "") 
  	{ 
- 		return "Insert Item Name."; 
+ 		return "Please Insert Buyer Address."; 
  	}
- 	// PRICE-------------------------------
+ 	// BuyerEmail
 	if ($("#bEmail").val().trim() == "") 
  	{ 
- 		return "Insert Item Price."; 
+ 		return "Please Insert Buyer Email."; 
  	} 
-	
-	// DESCRIPTION------------------------
+	// BuyerDate
 	if ($("#bDate").val().trim() == "") 
  	{ 
- 		return "Insert Item Description."; 
+ 		return "Please Insert Buyer Date."; 
  	}
- 	// DESCRIPTION------------------------
+ 	// BuyerPhoneNo
 	if ($("#pNo").val().trim() == "") 
  	{ 
- 		return "Insert Item Descripti."; 
+ 		return "Please Insert Buyer Phone No."; 
  	}  
 return true; 
 }
 
-// Function on items==========
-function onItemSaveComplete(response, status)
+// Function on buyers==========
+function onBuyerSaveComplete(response, status)
 { 
 	if (status == "success") 
  	{ 
@@ -113,7 +112,7 @@ function onItemSaveComplete(response, status)
  		{ 
  			$("#alertSuccess").text("Successfully saved."); 
  			$("#alertSuccess").show(); 
- 			$("#divItemsGrid").html(resultSet.data); 
+ 			$("#divBuyerGrid").html(resultSet.data); 
  		} else if (resultSet.status.trim() == "error") 
  		{ 
  			$("#alertError").text(resultSet.data); 
@@ -130,13 +129,13 @@ function onItemSaveComplete(response, status)
  		}
  		
  		
- 		$("#hidItemIDSave").val(""); 
- 		$("#formItem")[0].reset(); 
+ 		$("#hidBuyerIDSave").val(""); 
+ 		$("#formBuyer")[0].reset(); 
 }
 
-// function iems Delete====================
+// function buyer Delete====================
 
-function onItemDeleteComplete(response, status)
+function onBuyerDeleteComplete(response, status)
 { 
 if (status == "success") 
  { 
@@ -145,7 +144,7 @@ if (status == "success")
  { 
  $("#alertSuccess").text("Successfully deleted."); 
  $("#alertSuccess").show(); 
- $("#divItemsGrid").html(resultSet.data); 
+ $("#divBuyerGrid").html(resultSet.data); 
  } else if (resultSet.status.trim() == "error") 
  { 
  $("#alertError").text(resultSet.data); 
