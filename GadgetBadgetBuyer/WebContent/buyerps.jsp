@@ -35,7 +35,7 @@
 					<!-- css -->
 					<div class="section-content">
 						<h1 class="section-header">
-							Products in <span class="content-header wow fadeIn "
+							Buyers in <span class="content-header wow fadeIn "
 								data-wow-delay="0.2s" data-wow-duration="2s"> Gadget
 								Badget System</span>
 						</h1>
